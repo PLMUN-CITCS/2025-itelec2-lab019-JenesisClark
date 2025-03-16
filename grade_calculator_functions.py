@@ -1,65 +1,49 @@
-1 file changed
-+19
--10
-lines changed
+# grade_calculator_functions.py
 
- 
-"""
-Grade Calculator Program
-This script prompts the user to enter their score, determines their letter grade,
-and displays the result.It includes functions for input validation and grading logic.
-"""
 def get_student_score() -> float:
     """
-    Prompts the user to enter their score, validates the input, 
-    Prompts the user to enter their score, validates the input,
-    and returns the numerical score as a float.
+    Prompts the user to input their score and ensures it is a valid number.
+    
+    Returns:
+        float: The student's score as a numerical value.
     """
     while True:
         try:
-            score = float(input("Enter your score: 90"))
+            score = float(input("Enter your score: "))  # Try to convert the input to a float
             if 0 <= score <= 100:
-                return score
+                return score  # Return the score if it is within the valid range
             else:
-                print("Invalid input.Please enter a score between 0 and 100.")
-            print("Invalid input.Please enter a score between 0 and 100.")
+                print("Score must be between 0 and 100. Please try again.")
         except ValueError:
-            print("Invalid input.Please enter a valid numeric score.")
+            print("Invalid input. Please enter a numerical value.")
 
 def calculate_grade(score: float) -> str:
     """
-    Determines the letter grade based on the given score.
+    Determines the letter grade based on the score.
     
-    Parameters:
-    score (float):The student's numerical score.
+    Args:
+        score (float): The numerical score to evaluate.
     
     Returns:
-    str:The corresponding letter grade ('A', 'B', 'C', 'D', or 'F').
+        str: The corresponding letter grade ('A', 'B', 'C', 'D', or 'F').
     """
     if score >= 90:
-        return "A"
+        return 'A'
     elif score >= 80:
-    if score >= 80:
-        return "B"
+        return 'B'
     elif score >= 70:
-    if score >= 70:
-        return "C"
+        return 'C'
     elif score >= 60:
-    if score >= 60:
-        return "D"
+        return 'D'
     else:
-        return "F"
-    return "F"  # No need for "else", as return ends function execution
+        return 'F'
 
-# Main program flow
+# Main Program Flow
 def main():
-    """
-    Main function that drives the program.
-    It gets the user's score,calculates the grade,and prints the result.
-    """
-    score = get_student_score()
-    grade = calculate_grade(score)
-    print(f"Your Grade is: {grade}")
+    score = get_student_score()  # Get the score from the user
+    grade = calculate_grade(score)  # Calculate the grade
+    print(f"Your Grade is: {grade}")  # Display the grade
 
-if _name_ == "_main_":
+# If the script is being run directly, call the main function
+if __name__ == "__main__":
     main()
