@@ -1,9 +1,3 @@
-1 file changed
-+19
--10
-lines changed
-
- 
 """
 Grade Calculator Program
 This script prompts the user to enter their score, determines their letter grade,
